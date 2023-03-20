@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "name": "petgram-server-luis",
-  "alias": ["petgram-api-luis"],
+  "name": "petgram-server-luisedgucv2",
+  "alias": ["petgram-api-luisedgucv2"],
   "builds": [{ "src": "index.js", "use": "@now/node" }],
   "routes": [{
     "headers": {
