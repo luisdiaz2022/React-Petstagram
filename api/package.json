@@ -1,7 +1,6 @@
 {
   "name": "curso-avanzado-graphql-server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "deploy": "now -t <tu-token>",
@@ -13,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "2.5.0",
-    "bcrypt": "3.0.6",
+    "bcrypt": "4.0.0",
     "cors": "2.8.5",
     "express": "4.17.0",
     "express-jwt": "5.3.1",
@@ -24,5 +23,7 @@
   },
   "devDependencies": {
     "nodemon": "1.19.0"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
