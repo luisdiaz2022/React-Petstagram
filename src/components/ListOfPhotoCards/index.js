@@ -1,23 +1,14 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { PhotoCard } from '../PhotoCard';
+import { ANIMALS_QUERY } from '../hoc/ANIMALS_QUERY';
 
-const ANIMALS_QUERY = gql`
-  query getPhotos {
-      photos {
-      id
-      categoryId
-      src
-      likes
-      userId
-      liked
-      }
-  }
-`
 
-export const ListOfPhotoCards = () => {
-    const { data, loading, error } = useQuery(ANIMALS_QUERY)  // destructuras la data y el estado de loading y error 
-    if (loading) return 'Loading...' // manejas el estado para que no te saque error mientras hace el fetch
+export const ListOfPhotoCards = ({categoryId}) => {
+    const { data, loading, error } = useQuery(ANIMALS_QUERY, {
+      variables: {categoryId}
+    })  
+    if (loading) return 'Loading...' 
     if (error) return <pre>{error.message}</pre>
     return (
       <ul>
