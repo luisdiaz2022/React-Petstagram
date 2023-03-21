@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useRef, useState} from 'react';
+import React from 'react';
 import { ImgWrapper, Img, Button, Article } from './styles';
 import { MdFavoriteBorder, MdFavorite} from "react-icons/md";
 import { useLocalStorage } from '../../hooks/useLocalStorage';
@@ -16,7 +16,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     return(
         <Article ref={element}>
             {
-                show && <Fragment>
+                show && <>
                     <a href = {`/details/${id}`}>
                         <ImgWrapper>
                             <Img src = {src} />
@@ -26,7 +26,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
                     <Button onClick={() => setLiked(!liked)}>
                         <Icon size = '32px'/> {likes} likes!
                     </Button>
-                </Fragment>
+                </>
             }
         </Article>
     )
