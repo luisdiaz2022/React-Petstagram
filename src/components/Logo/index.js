@@ -1,5 +1,5 @@
-import * as React from "react"
-import { Svg } from "./styles"
+import * as React from "react";
+import { Svg } from "./styles";
 
 export const Logo = (props) => (
   <Svg
@@ -49,4 +49,4 @@ export const Logo = (props) => (
       />
     </g>
   </Svg>
-)
+);
