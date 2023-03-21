@@ -1,8 +1,10 @@
 import React from "react";
+
 import { ListOfCategories } from "./components/ListOfCategories";
-import { GlobalStyle } from "./components/styles/GlobalStyles";
+import { GlobalStyle } from "./styles/GlobalStyles";
 import { ListOfPhotoCards } from "./components/ListOfPhotoCards";
 import { Logo } from "./components/Logo";
+import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
 import { detailPath } from "./utils";
 
 export const App = () => {
@@ -15,7 +17,7 @@ export const App = () => {
       <GlobalStyle />
       <Logo />
       {detailId ? (
-        <h1>Detail Id: {detailId}</h1>
+        <PhotoCardWithQuery id={detailId} />
       ) : (
         <>
           <ListOfCategories />
