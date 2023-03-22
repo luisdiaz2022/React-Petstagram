@@ -1,11 +1,11 @@
 import React from "react";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 
-import { ListOfCategories } from "./components/ListOfCategories";
 import { GlobalStyle } from "./styles/GlobalStyles";
-import { ListOfPhotoCards } from "./components/ListOfPhotoCards";
 import { Logo } from "./components/Logo";
 import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
 import { detailPath } from "./utils";
+import { Home } from "./pages/Home";
 
 export const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search);
@@ -19,10 +19,12 @@ export const App = () => {
       {detailId ? (
         <PhotoCardWithQuery id={detailId} />
       ) : (
-        <>
-          <ListOfCategories />
-          <ListOfPhotoCards categoryId={1} />
-        </>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/pet/:id" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
       )}
     </div>
   );

@@ -1,4 +1,5 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+
 import { Category } from "../Category";
 import { List, Item } from "./styles";
 
@@ -41,25 +42,19 @@ export const ListOfCategories = () => {
 
   const renderList = (fixed) => (
     <List fixed={fixed}>
-      {loading ? (
-        <Item key="loading">
-          {" "}
-          <Category />{" "}
-        </Item>
-      ) : (
-        categories.map((category) => (
-          <Item key={category.id}>
-            <Category {...category} />
-          </Item>
-        ))
-      )}
+      {loading
+        ? [1, 2, 3, , 4, 5, 6].map((category) => <Item key={category}></Item>)
+        : categories.map((category) => (
+            <Item key={category.id}>
+              <Category {...category} path={`/pet/${category.id}`} />
+            </Item>
+          ))}
     </List>
   );
-
   return (
-    <Fragment>
+    <>
       {renderList()}
       {showFixed && renderList(true)}
-    </Fragment>
+    </>
   );
 };

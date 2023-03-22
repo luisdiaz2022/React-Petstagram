@@ -17,7 +17,7 @@
     "build": "webpack",
     "lint": "standard",
     "lint-fix": "standard-fix",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server --history-api-fallback"
   },
   "dependencies": {
     "@apollo/client": "^3.7.10",
@@ -26,6 +26,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
+    "react-router-dom": "^6.9.0",
     "styled-components": "^5.3.9"
   },
   "standard": {
