@@ -10,7 +10,6 @@ import { Home } from "./pages/Home";
 export const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search);
   const detailId = urlParams.get(`${detailPath}`);
-  console.log(detailId);
 
   return (
     <div>
