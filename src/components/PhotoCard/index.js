@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { ImgWrapper, Img, Article } from "./styles";
 
@@ -17,7 +18,6 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   const { mutation, mutationLoading, mutationError } = useMuationToogleLike();
   const key = `like-${id}`;
   const [liked, setLiked] = useLocalStorage(key, false);
-  console.log(liked);
 
   const handleFavClick = () => {
     !liked &&
@@ -29,17 +29,15 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     setLiked(!liked);
   };
 
-  // console.log('{ mutation, mutationLoading, mutationError }', { mutation, mutationLoading, mutationError })
-
   return (
     <Article ref={element}>
       {show && (
         <>
-          <a href={`/?${detailPath}=${id}`}>
+          <Link to={`/${detailPath}/${id}`}>
             <ImgWrapper>
               <Img src={src} />
             </ImgWrapper>
-          </a>
+          </Link>
           <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
         </>
       )}
