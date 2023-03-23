@@ -3,6 +3,7 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Logo } from "./components/Logo";
+import { NavBar } from "./components/NavBar";
 
 import { detailPath } from "./utils";
 import { Home } from "./pages/Home";
@@ -22,6 +23,7 @@ export const App = () => {
           <Route path="/pet/:id" element={<Home />} />
           <Route path={`/detail/:detailId`} element={<Detail />} />
         </Routes>
+        <NavBar />
       </BrowserRouter>
     </div>
   );
