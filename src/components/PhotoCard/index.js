@@ -6,7 +6,7 @@ import { ImgWrapper, Img, Article } from "./styles";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useNearScreen } from "../../hooks/useNearScreen";
 import { detailPath } from "../../utils";
-import { useMuationToogleLike } from "../../container/ToggleLikeMutation";
+import { useMutationToggleLike } from "../../container/ToggleLikeMutation";
 
 import { FavButton } from "../FavButton";
 
@@ -15,7 +15,7 @@ const DEFAULT_IMAGE =
 
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   const [show, element] = useNearScreen();
-  const { mutation, mutationLoading, mutationError } = useMuationToogleLike();
+  const { mutation, mutationLoading, mutationError } = useMutationToggleLike();
   const key = `like-${id}`;
   const [liked, setLiked] = useLocalStorage(key, false);
 
