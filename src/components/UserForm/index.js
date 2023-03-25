@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { Form, Input, Button, Title } from "./styles";
+import { Form, Input, Button, Title, Error } from "./styles";
 
-export const UserForm = ({ onSubmit, title }) => {
+export const UserForm = ({ onSubmit, title, error, disabled }) => {
   const [form, setForm] = useState({ email: "", password: "" });
 
   const handleForm = (e) => {
@@ -19,23 +19,26 @@ export const UserForm = ({ onSubmit, title }) => {
 
   return (
     <>
-      <Title>{title}</Title>
-      <Form onSubmit={handleSubmit}>
+      <Form disabled={disabled} onSubmit={handleSubmit}>
+        <Title>{title}</Title>
         <Input
+          disabled={disabled}
           placeholder="Email"
           name="email"
           value={form.email}
           onChange={handleForm}
         />
         <Input
+          disabled={disabled}
           placeholder="Contraseña"
           name="password"
           type="password"
           value={form.password}
           onChange={handleForm}
         />
-        <Button>{title}</Button>
+        <Button disabled={disabled}>{title}</Button>
       </Form>
+      {error && <Error>{error}</Error>}
     </>
   );
 };

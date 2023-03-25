@@ -6,7 +6,12 @@ import { useRegisterMutation } from "../container/RegisterMutation";
 
 export const NotRegisteredUser = () => {
   const { activateAuth } = useContext(AppContext);
-  const { registerMutation } = useRegisterMutation();
+  const {
+    registerMutation,
+    registerMutationData,
+    registerMutationLoading,
+    registerMutationError,
+  } = useRegisterMutation();
 
   const onSubmit = ({ email, password }) => {
     const input = { email, password };
@@ -14,9 +19,17 @@ export const NotRegisteredUser = () => {
     registerMutation({ variables: variable }).then(activateAuth);
   };
 
+  const errorMsg =
+    registerMutationError && "El usuario ya existe o hay algun problema.";
+
   return (
     <>
-      <UserForm title="Registrarse" onSubmit={onSubmit} />
+      <UserForm
+        disabled={registerMutationLoading}
+        error={errorMsg}
+        title="Registrarse"
+        onSubmit={onSubmit}
+      />
       <UserForm title="Iniciar sesion" onSubmit={onSubmit} />
     </>
   );
