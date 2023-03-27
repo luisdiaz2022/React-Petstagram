@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Suspense } from "react";
 import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import { AppContext } from "./Context";
 
@@ -13,10 +13,12 @@ import { User } from "./pages/User";
 import { NotRegisteredUser } from "./pages/NotRegisteredUser";
 import { NotFound } from "./pages/NotFound";
 
+//const Favs = React.lazy(() => import("./pages/Favs"));
+
 export const App = () => {
   const { isAuth } = useContext(AppContext);
   return (
-    <div>
+    <Suspense fallback={<div />}>
       <BrowserRouter>
         <GlobalStyle />
         <Logo />
@@ -43,6 +45,6 @@ export const App = () => {
         </Routes>
         <NavBar />
       </BrowserRouter>
-    </div>
+    </Suspense>
   );
 };
