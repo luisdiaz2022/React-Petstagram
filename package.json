@@ -17,7 +17,8 @@
     "build": "webpack",
     "lint": "standard",
     "lint-fix": "standard-fix",
-    "dev": "webpack-dev-server --history-api-fallback"
+    "dev": "webpack-dev-server --history-api-fallback",
+    "serve:dev": "webpack -- mode development && npx serve dist -s" 
   },
   "dependencies": {
     "@apollo/client": "^3.7.10",
