@@ -9,6 +9,17 @@ const AppProvider = (props) => {
 
   const activateAuth = (token) => {
     setIsAuth(true);
+    // Ugly way
+    //if (token.data.signup) {
+    //window.sessionStorage.setItem("token", token.data.signup);
+    //}
+    //if (token.data.login) {
+    //window.sessionStorage.setItem("token", token.data.login);
+    //}
+
+    // or ||
+    // Ugly fast
+    // window.sessionStorage.setItem("token", token.data.login || token.data.signup);
     window.sessionStorage.setItem("token", token);
   };
 
@@ -19,4 +30,4 @@ const AppProvider = (props) => {
   );
 };
 
-export { AppContext, AppProvider };
+export { AppProvider, AppContext };

@@ -24,13 +24,21 @@ export const NotRegisteredUser = () => {
   const onSubmitRegister = ({ email, password }) => {
     const input = { email, password };
     const variable = { input };
-    registerMutation({ variables: variable }).then(activateAuth);
+    registerMutation({ variables: variable }).then((data) => {
+      activateAuth(data.data.signup);
+    });
   };
 
   const onSubmitLogin = ({ email, password }) => {
     const input = { email, password };
     const variable = { input };
-    loginMutation({ variables: variable }).then(activateAuth);
+    loginMutation({ variables: variable }).then(function (data) {
+      activateAuth(data.data.login);
+    });
+    // .then(function) or .then(function(data){ ... })
+    // funcion(data){
+    // var data = Promesa()
+    //}
   };
 
   const errorMsgRegister =
