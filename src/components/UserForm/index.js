@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import { Form, Input, Button, Title, Error } from "./styles";
+import { Form, Input, Title, Error } from "./styles";
+import { SubmitButton } from "../SubmitButton";
 
 export const UserForm = ({ onSubmit, title, error, disabled }) => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -36,7 +37,7 @@ export const UserForm = ({ onSubmit, title, error, disabled }) => {
           value={form.password}
           onChange={handleForm}
         />
-        <Button disabled={disabled}>{title}</Button>
+        <SubmitButton disabled={disabled}>{title}</SubmitButton>
       </Form>
       {error && <Error>{error}</Error>}
     </>

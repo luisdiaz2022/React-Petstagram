@@ -9,22 +9,17 @@ const AppProvider = (props) => {
 
   const activateAuth = (token) => {
     setIsAuth(true);
-    // Ugly way
-    //if (token.data.signup) {
-    //window.sessionStorage.setItem("token", token.data.signup);
-    //}
-    //if (token.data.login) {
-    //window.sessionStorage.setItem("token", token.data.login);
-    //}
-
-    // or ||
-    // Ugly fast
-    // window.sessionStorage.setItem("token", token.data.login || token.data.signup);
     window.sessionStorage.setItem("token", token);
   };
 
+  const removeAuth = () => {
+    setIsAuth(false);
+    window.sessionStorage.removeItem("token");
+    __APOLLO_CLIENT__.resetStore();
+  };
+
   return (
-    <AppContext.Provider value={{ isAuth, activateAuth }}>
+    <AppContext.Provider value={{ isAuth, activateAuth, removeAuth }}>
       {props.children}
     </AppContext.Provider>
   );
