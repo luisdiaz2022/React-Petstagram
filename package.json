@@ -11,7 +11,8 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.1",
     "webpack-pwa-manifest": "^4.3.0",
-    "wepack-cli": "^0.0.1-security"
+    "wepack-cli": "^0.0.1-security",
+    "workbox-webpack-plugin": "^6.5.4"
   },
   "scripts": {
     "now-build": "npm run build",
@@ -19,7 +20,7 @@
     "lint": "standard",
     "lint-fix": "standard-fix",
     "dev": "webpack-dev-server --history-api-fallback",
-    "serve:dev": "webpack -- mode development && npx serve dist -s"
+    "serve:dev": "webpack --mode development && npx serve dist -s"
   },
   "dependencies": {
     "@apollo/client": "^3.7.10",
